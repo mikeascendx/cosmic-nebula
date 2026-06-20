@@ -1,0 +1,52 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="obg" cx="38%" cy="45%" r="80%">
+      <stop offset="0%" stop-color="#1a0b37"/>
+      <stop offset="55%" stop-color="#0a0420"/>
+      <stop offset="100%" stop-color="#05020f"/>
+    </radialGradient>
+    <radialGradient id="oc1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="oc2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d946ef" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#d946ef" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="oc3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ocore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#e9c6ff"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#obg)"/>
+  <g style="mix-blend-mode:screen">
+    <circle cx="300" cy="300" r="360" fill="url(#oc1)"/>
+    <circle cx="220" cy="430" r="260" fill="url(#oc2)"/>
+    <circle cx="430" cy="200" r="240" fill="url(#oc3)"/>
+    <circle cx="300" cy="315" r="120" fill="url(#ocore)"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="300" cy="315" r="6"/>
+    <circle cx="120" cy="120" r="2.4" opacity="0.8"/>
+    <circle cx="520" cy="150" r="2" opacity="0.7"/>
+    <circle cx="480" cy="470" r="2.6" opacity="0.8"/>
+    <circle cx="150" cy="520" r="2" opacity="0.6"/>
+    <circle cx="560" cy="360" r="1.8" opacity="0.6"/>
+    <circle cx="380" cy="540" r="2.2" opacity="0.7"/>
+  </g>
+  <text x="660" y="296" font-family="Geist, Arial, sans-serif" font-size="86" font-weight="300" letter-spacing="14" fill="#ffffff">COSMIC</text>
+  <text x="662" y="356" font-family="Geist, Arial, sans-serif" font-size="23" letter-spacing="4" fill="#ffffff" fill-opacity="0.55">INTERACTIVE PARTICLE UNIVERSE</text>
+  <g transform="translate(662 396)">
+    <rect x="0" y="0" width="150" height="40" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.15"/>
+    <text x="75" y="26" text-anchor="middle" font-family="Geist, Arial, sans-serif" font-size="16" letter-spacing="3" fill="#c4b5fd">7 MODES</text>
+  </g>
+  <g transform="translate(826 396)">
+    <rect x="0" y="0" width="200" height="40" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.15"/>
+    <text x="100" y="26" text-anchor="middle" font-family="Geist, Arial, sans-serif" font-size="16" letter-spacing="3" fill="#7dd3fc">TOUCH · MOUSE · AUDIO</text>
+  </g>
+</svg>
