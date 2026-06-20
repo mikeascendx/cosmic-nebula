@@ -57,6 +57,7 @@ server.log
 # process / local files
 *.pid
 /db/*.db
+/.playwright-mcp/
 
 # Z.ai scaffold leftovers — not part of Cosmic Nebula
 /.zscripts/
