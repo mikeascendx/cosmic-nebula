@@ -22,6 +22,21 @@ Built to feel effortless on a phone *and* fill a 4K display.
 
 ---
 
+## ✦ Gallery
+
+<table>
+  <tr>
+    <td width="62%"><img src="./public/screenshots/desktop.png" alt="Cosmic Nebula on desktop" /></td>
+    <td width="38%"><img src="./public/screenshots/mobile.png" alt="Cosmic Nebula on a phone" /></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Desktop — galaxy field with the floating control panel</sub></td>
+    <td align="center"><sub>Phone — the full canvas, edge to edge</sub></td>
+  </tr>
+</table>
+
+<div align="center"><img src="./public/screenshots/mobile-controls.png" alt="Mobile control sheet" width="300" /><br/><sub>Mobile — drag-up control sheet with thumb-sized targets</sub></div>
+
 ## ✦ What it is
 
 Cosmic Nebula renders up to a few thousand particles on a single HTML5 canvas and runs a

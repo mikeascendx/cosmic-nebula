@@ -1,0 +1,15 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - heading "COSMIC" [level=1]
+        - paragraph: Interactive Particle Universe
+    - banner [ref=e3]:
+      - generic [ref=e6]: Cosmic Nebula
+      - button "Toggle controls" [ref=e8]:
+        - img [ref=e9]
+    - generic:
+      - generic: Drifting clouds of cosmic dust
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e17] [cursor=pointer]:
+    - img [ref=e18]
