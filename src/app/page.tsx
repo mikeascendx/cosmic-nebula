@@ -265,13 +265,17 @@ export default function Home() {
             <span className="h-3 w-px bg-white/10" />
             <span className="font-mono text-[9px] uppercase tracking-wider text-white/30">{stats.tier}</span>
           </div>
-          <button
-            onClick={() => setControlsOpen((o) => !o)}
-            aria-label="Toggle controls"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/60 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white"
-          >
-            {controlsOpen && !isMobile ? <X className="h-4 w-4" /> : <Settings2 className="h-4 w-4" />}
-          </button>
+          {/* Desktop opener only — on mobile the floating button (FAB) is the
+              single opener, so we don't render this one and create a duplicate. */}
+          {!isMobile && (
+            <button
+              onClick={() => setControlsOpen((o) => !o)}
+              aria-label="Toggle controls"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/60 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white"
+            >
+              {controlsOpen ? <X className="h-4 w-4" /> : <Settings2 className="h-4 w-4" />}
+            </button>
+          )}
         </div>
       </motion.header>
 
