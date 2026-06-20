@@ -145,6 +145,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* keeps overlay text legible over bright particle hot-spots */
+.cosmic-legible {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
 /* frosted glass surface used by panels + sheet */
 .cosmic-glass {
   background: rgba(8, 6, 18, 0.62);

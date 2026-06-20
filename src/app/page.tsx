@@ -200,6 +200,15 @@ export default function Home() {
         className="pointer-events-none absolute inset-0 z-[5]"
         style={{ background: 'radial-gradient(120% 120% at 50% 50%, transparent 55%, rgba(0,0,0,0.55) 100%)' }}
       />
+      {/* top + bottom scrims so chrome text stays legible over bright particles */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 z-[6] h-28"
+        style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0))' }}
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[6] h-24"
+        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0))' }}
+      />
 
       {/* ---------- intro ---------- */}
       <AnimatePresence>
@@ -211,12 +220,12 @@ export default function Home() {
             transition={{ duration: 1.1 }}
             className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center"
           >
-            <div className="text-center">
+            <div className="cosmic-legible text-center">
               <motion.h1
                 initial={{ letterSpacing: '0.05em', opacity: 0 }}
                 animate={{ letterSpacing: '0.32em', opacity: 1 }}
                 transition={{ duration: 1.4, ease: 'easeOut' }}
-                className="text-5xl font-extralight text-white/90 md:text-8xl"
+                className="text-5xl font-extralight text-white md:text-8xl"
               >
                 COSMIC
               </motion.h1>
@@ -224,7 +233,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 1 }}
-                className="mt-3 text-[10px] uppercase tracking-[0.45em] text-white/40 md:text-sm"
+                className="mt-3 text-[10px] uppercase tracking-[0.45em] text-white/55 md:text-sm"
               >
                 Interactive Particle Universe
               </motion.p>
@@ -238,32 +247,32 @@ export default function Home() {
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.7 }}
-        className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-4 pt-[max(0.9rem,env(safe-area-inset-top))] md:px-6"
+        className="cosmic-legible absolute inset-x-0 top-0 z-20 flex items-center justify-between px-4 pt-[max(0.9rem,env(safe-area-inset-top))] md:px-6"
       >
         <div className="flex items-center gap-2.5">
           <span className="h-2 w-2 animate-pulse rounded-full" style={{ background: pal.accent, boxShadow: `0 0 10px ${pal.accent}` }} />
-          <span className="text-[11px] font-light uppercase tracking-[0.28em] text-white/65">Cosmic Nebula</span>
+          <span className="text-[11px] font-medium uppercase tracking-[0.28em] text-white/90">Cosmic Nebula</span>
         </div>
 
         <div className="flex items-center gap-2.5">
-          <div className="hidden items-center gap-3 rounded-full border border-white/[0.07] bg-black/30 px-3.5 py-1.5 backdrop-blur-md sm:flex">
-            <span className="flex items-center gap-1.5 font-mono text-[10px] text-white/45">
+          <div className="hidden items-center gap-3 rounded-full border border-white/12 bg-black/55 px-3.5 py-1.5 backdrop-blur-md sm:flex">
+            <span className="flex items-center gap-1.5 font-mono text-[10px] text-white/70">
               <Gauge className="h-3 w-3" />
               {stats.fps} fps
             </span>
-            <span className="h-3 w-px bg-white/10" />
-            <span className="font-mono text-[10px] text-white/45">{stats.count.toLocaleString()} stars</span>
+            <span className="h-3 w-px bg-white/15" />
+            <span className="font-mono text-[10px] text-white/70">{stats.count.toLocaleString()} stars</span>
             {stats.supernovae > 0 && (
               <>
-                <span className="h-3 w-px bg-white/10" />
-                <span className="flex items-center gap-1 font-mono text-[10px] text-amber-300/60">
+                <span className="h-3 w-px bg-white/15" />
+                <span className="flex items-center gap-1 font-mono text-[10px] text-amber-300/80">
                   <Sparkle className="h-3 w-3" />
                   {stats.supernovae}
                 </span>
               </>
             )}
-            <span className="h-3 w-px bg-white/10" />
-            <span className="font-mono text-[9px] uppercase tracking-wider text-white/30">{stats.tier}</span>
+            <span className="h-3 w-px bg-white/15" />
+            <span className="font-mono text-[9px] uppercase tracking-wider text-white/55">{stats.tier}</span>
           </div>
           {/* Desktop opener only — on mobile the floating button (FAB) is the
               single opener, so we don't render this one and create a duplicate. */}
@@ -288,7 +297,7 @@ export default function Home() {
             exit={{ opacity: 0, y: -8 }}
             className="pointer-events-none absolute inset-x-0 top-1/2 z-20 mt-16 flex justify-center md:mt-24"
           >
-            <span className="rounded-full border border-white/[0.06] bg-black/30 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-white/45 backdrop-blur-md">
+            <span className="cosmic-legible rounded-full border border-white/10 bg-black/50 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-white/70 backdrop-blur-md">
               {coarse ? 'Drag to attract · Tap to ignite' : 'Move to attract · Click to ignite'}
             </span>
           </motion.div>
@@ -305,7 +314,7 @@ export default function Home() {
           transition={{ duration: 0.4 }}
           className="pointer-events-none absolute inset-x-0 bottom-[max(1.2rem,env(safe-area-inset-bottom))] z-10 flex justify-center"
         >
-          <span className="rounded-full border border-white/[0.06] bg-black/25 px-4 py-1.5 text-[11px] tracking-[0.15em] text-white/40 backdrop-blur-md">
+          <span className="cosmic-legible rounded-full border border-white/10 bg-black/50 px-4 py-1.5 text-[11px] tracking-[0.15em] text-white/65 backdrop-blur-md">
             {activeMode?.description}
           </span>
         </motion.div>
