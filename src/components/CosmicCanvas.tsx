@@ -216,6 +216,11 @@ const CosmicCanvas = forwardRef<CosmicCanvasHandle, CosmicCanvasProps>(function 
         break;
       }
     }
+    // prefers-reduced-motion: calm the initial/respawn drift, don't freeze it.
+    if (deviceRef.current.reducedMotion) {
+      p.vx *= 0.5;
+      p.vy *= 0.5;
+    }
   }, []);
 
   const blank = (): P => ({ x: 0, y: 0, vx: 0, vy: 0, size: 1, ci: 0, life: 0, maxLife: 1, alpha: 0 });
@@ -505,6 +510,8 @@ const CosmicCanvas = forwardRef<CosmicCanvasHandle, CosmicCanvasProps>(function 
       const h = canvas.clientHeight;
       const pal = getPalette(c.palette);
       if (paletteIdRef.current !== c.palette) buildSprites(c.palette);
+      // prefers-reduced-motion: keep the scene alive, just gentler. Never freeze it.
+      const calm = deviceRef.current.reducedMotion;
 
       // audio level
       let energy = 0;
@@ -548,14 +555,16 @@ const CosmicCanvas = forwardRef<CosmicCanvasHandle, CosmicCanvasProps>(function 
       if (hoverRef.current.on && pointersRef.current.size === 0) {
         attractors.push({ x: hoverRef.current.x, y: hoverRef.current.y, s: 0.8 });
       }
-      // idle autopilot
+      // idle autopilot: calmer roam speed/amplitude/pull under reduced motion
       const idle = now - lastInputRef.current > 3500;
       if (c.autopilot && idle && attractors.length === 0) {
-        const t = now * 0.0004;
+        const t = now * (calm ? 0.00012 : 0.0004);
+        const ampX = calm ? 0.12 : 0.32;
+        const ampY = calm ? 0.1 : 0.28;
         attractors.push({
-          x: w * (0.5 + 0.32 * Math.sin(t)),
-          y: h * (0.5 + 0.28 * Math.sin(t * 1.37 + 1)),
-          s: 0.7,
+          x: w * (0.5 + ampX * Math.sin(t)),
+          y: h * (0.5 + ampY * Math.sin(t * 1.37 + 1)),
+          s: calm ? 0.35 : 0.7,
         });
       }
 
@@ -572,7 +581,7 @@ const CosmicCanvas = forwardRef<CosmicCanvasHandle, CosmicCanvasProps>(function 
         field.length = targetCount;
       }
 
-      const grav = c.gravity * (1 + energy * 1.4);
+      const grav = c.gravity * (1 + energy * 1.4) * (calm ? 0.45 : 1);
       const repel = c.pointerMode === 'repel';
       const cxC = w / 2;
       const cyC = h / 2;
@@ -604,7 +613,11 @@ const CosmicCanvas = forwardRef<CosmicCanvasHandle, CosmicCanvasProps>(function 
           }
         }
 
-        // mode behaviour
+        // mode behaviour (captured pre/post so calm mode can halve the ambient
+        // per-mode motion below without touching every case individually)
+        const vx0 = p.vx;
+        const vy0 = p.vy;
+        let respawned = false;
         switch (c.mode) {
           case 'galaxy': {
             const dx = cxC - p.x;
@@ -624,6 +637,7 @@ const CosmicCanvas = forwardRef<CosmicCanvasHandle, CosmicCanvasProps>(function 
             if (d < 26) {
               // swallowed — respawn at the rim
               spawn(p, w, h);
+              respawned = true;
             }
             break;
           }
@@ -655,6 +669,10 @@ const CosmicCanvas = forwardRef<CosmicCanvasHandle, CosmicCanvasProps>(function 
           }
           default:
             break;
+        }
+        if (calm && !respawned) {
+          p.vx = vx0 + (p.vx - vx0) * 0.5;
+          p.vy = vy0 + (p.vy - vy0) * 0.5;
         }
 
         p.vx *= 0.995;

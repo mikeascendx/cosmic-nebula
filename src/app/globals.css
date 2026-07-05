@@ -167,6 +167,11 @@ body {
 .cosmic-range:focus {
   outline: none;
 }
+.cosmic-range:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
 .cosmic-range::-webkit-slider-runnable-track {
   height: 4px;
   border-radius: 999px;
@@ -206,6 +211,14 @@ body {
   background: #fff;
   cursor: pointer;
   box-shadow: 0 0 10px var(--accent);
+}
+
+/* visible keyboard focus for the cosmic control surface (buttons, mode
+   switches, palette swatches): fits the dark glass UI, doesn't touch
+   hover/active styles */
+.cosmic-body button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 2px;
 }
 
 /* thin dark scrollbars inside panels */
