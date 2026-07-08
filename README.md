@@ -152,3 +152,9 @@ src/
 [MIT](./LICENSE) — do anything you like. A link back is appreciated, never required.
 
 <div align="center"><br/><sub>Made with curiosity. Point, drag, and ignite. 🌌</sub></div>
+
+## Support
+
+If this project helped or delighted you, you can leave a tip. It keeps the experiments going.
+
+[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/mikeascendx)
